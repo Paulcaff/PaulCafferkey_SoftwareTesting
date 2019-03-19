@@ -6,15 +6,15 @@ import static org.junit.Assert.*;
 
 public class LoanTest {
 
-    Loan loan = new Loan(100,12);
+    Loan loan = new Loan(1000,4);
 
     @Test
     public void TestgetAmount(){
-        assertEquals(100,loan.getAmount());
+        assertEquals(1000,loan.getAmount(),0.001);
     }
 
     @Test
     public void TestgetPeriod(){
-        assertEquals(12,loan.getPeriod());
+        assertEquals(4,loan.getPeriod());
     }
 }
