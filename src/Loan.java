@@ -122,7 +122,13 @@ public class Loan {
     }
 
 
+    public static void main(String[] args) {
+        Loan l = new Loan(10000,5);
 
+        double amt= l.getMonthlyPayment();
+        double rate = l.getRate();
+        System.out.println(amt+" "+rate);
+    }
 
 }
 

@@ -1,4 +1,5 @@
 import org.easymock.EasyMock;
+import org.easymock.IExpectationSetters;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.api.easymock.PowerMock;
@@ -13,34 +14,32 @@ import static org.junit.Assert.*;
 
 public class LoanMockTest {
 
-
-
     @Test //(expected = AssertionError.class)
     public void testLoan() throws Exception {
         System.out.println("in test");
-        Loan loan = new Loan(5000,3);
+        Customer customer = new Customer("Paul",175.0);
+        customer.takeoutloan();
 
+        /*call the createMock to create a mock for the relevant classes */
+        Loan loan =  EasyMock.createMock(Loan.class);
 
-            /*call the createMock to create a mock for the Owner class */
-        Customer customer = EasyMock.createMock(Customer.class);
-
-            /* Tell PowerMock to intercept any new call and return mockOwner */
-        PowerMock.expectNew(Customer.class, "Paul", 100.00).andReturn(customer);
-
-
+        /* Tell PowerMock to intercept any new call and return mockOwner */
+        PowerMock.expectNew(Loan.class,(double)10000,5).andReturn(loan);
 
             /* set up the expected values and return values */
-        expect(customer.getMonthlypayments()).andReturn(100.00);
+        expect(loan.getMonthlyPayment()).andReturn(175.0);
 
             /*activate the mock */
-        PowerMock.replay(customer, Customer.class);
+        PowerMock.replay(loan, Loan.class);
 
-        double expResult = 10;
-        double result = loan.getRate();
+        double expResult = 175;
+        double result = loan.getMonthlyPayment();
 
-        assertEquals(expResult, result, 0.05);
-            /* verify that PowerMock was called and used */
-       // PowerMock.verify(customer, Customer.class);
+        assertEquals(expResult,result, 0.05);
+
+        /* verify that PowerMock was called and used */
+        //PowerMock.verify(loan, Loan.class);
+
 
     }
 }
