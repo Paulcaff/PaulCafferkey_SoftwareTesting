@@ -17,4 +17,5 @@ public class LoanTest {
     public void TestgetPeriod(){
         assertEquals(4,loan.getPeriod());
     }
+
 }

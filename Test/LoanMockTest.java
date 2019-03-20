@@ -18,7 +18,7 @@ public class LoanMockTest {
     @Test //(expected = AssertionError.class)
     public void testLoan() throws Exception {
         System.out.println("in test");
-        Loan loan = new Loan(5000, 3);
+        Loan loan = new Loan(5000,3);
 
 
             /*call the createMock to create a mock for the Owner class */
@@ -40,7 +40,7 @@ public class LoanMockTest {
 
         assertEquals(expResult, result, 0.05);
             /* verify that PowerMock was called and used */
-        //PowerMock.verify(customer, Customer.class);
+       // PowerMock.verify(customer, Customer.class);
 
     }
 }
