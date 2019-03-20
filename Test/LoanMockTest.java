@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 public class LoanMockTest {
 
-    @Test //(expected = AssertionError.class)
+    @Test
     public void testLoan() throws Exception {
         System.out.println("in test");
         Customer customer = new Customer("Paul",175.0);
@@ -33,12 +33,13 @@ public class LoanMockTest {
         PowerMock.replay(loan, Loan.class);
 
         double expResult = 175;
-        double result = loan.getMonthlyPayment();
+        customer.takeoutloan();
 
+        double result = customer.getMonthlypayments();
         assertEquals(expResult,result, 0.05);
 
         /* verify that PowerMock was called and used */
-        //PowerMock.verify(loan, Loan.class);
+        PowerMock.verify(loan, Loan.class);
 
 
     }
