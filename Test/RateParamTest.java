@@ -43,7 +43,7 @@ public class RateParamTest {
         });
     }
     @Test
-    public void testrate(){
+    public void testRate(){
         Loan loan = new Loan(amount, years);
         assertEquals(expectedRate, loan.getRate(), 0.001);
     }

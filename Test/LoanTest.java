@@ -10,12 +10,12 @@ public class LoanTest {
 
     //Constructor Tests
     @Test
-    public void TestgetAmount(){
+    public void TestGetAmount(){
         assertEquals(10000,loan.getAmount(),0.001);
     }
 
     @Test
-    public void TestgetPeriod(){
+    public void TestGetPeriod(){
         assertEquals(5,loan.getPeriod());
     }
 
@@ -23,9 +23,10 @@ public class LoanTest {
     public void TestRate(){
         assertEquals(5,loan.getRate(),0.001);
     }
+
     @Test
     public void TestMonthlyPayments(){
-        assertEquals(175.0,loan.getMonthlyPayment(),0.001);
+        assertEquals(188.71,loan.getMonthlyPayment(),0.01);
     }
 
 
